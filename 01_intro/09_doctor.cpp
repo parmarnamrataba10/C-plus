@@ -2,6 +2,7 @@
 
 #include<iostream>
 
+
 using namespace std;
 
 class Doctor{
@@ -40,30 +41,37 @@ void getdoctordetails(){
 }
 };
 int main(){
+
+
  Doctor d1;
  d1.setdoctordetails(301,"Dr.Arjun",35,"Cardiologist",90000,"Rajkot",8,"Civil Hospital");
  d1.getdoctordetails();
  cout<<endl;
+
 
  Doctor d2;
  d2.setdoctordetails(302,"Dr.Meera",40,"Neurologist",120000,"Ahmedabad",12,"Apollo Hospital");
  d2.getdoctordetails();
  cout<<endl;
 
+
  Doctor d3;
  d3.setdoctordetails(303,"Dr.Suresh",32,"Dentist",60000,"Surat",5,"Smile Clinic");
  d3.getdoctordetails();
  cout<<endl;
+
 
  Doctor d4;
  d4.setdoctordetails(304,"Dr.Kavya",38,"Pediatrician",85000,"Vadodara",10,"Care Hospital");
  d4.getdoctordetails();
  cout<<endl;
 
+
  Doctor d5;
  d5.setdoctordetails(305,"Dr.Rohit",45,"Orthopedic",110000,"Mumbai",15,"Fortis Hospital");
  d5.getdoctordetails();
  cout<<endl;
  
+
  return 0;
 }
