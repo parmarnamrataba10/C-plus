@@ -58,14 +58,14 @@ public:
     void getSchoolDetails()
     {
 
-        cout << "school id               " << school_id << endl;
-        cout << "school name             " << school_name << endl;
-        cout << "school type             " << school_type << endl;
-        cout << "school rating           " << school_rating << endl;
-        cout << "school location         " << school_location << endl;
-        cout << "school establish year   " << school_establish_year << endl;
-        cout << "school staff quantity   " << school_staff_quantity << endl;
-        cout << "school student quantity " << school_student_quantity << endl;
+        cout << "school id               : " << school_id << endl;
+        cout << "school name             : " << school_name << endl;
+        cout << "school type             : " << school_type << endl;
+        cout << "school rating           : " << school_rating << endl;
+        cout << "school location         : " << school_location << endl;
+        cout << "school establish year   : " << school_establish_year << endl;
+        cout << "school staff quantity   : " << school_staff_quantity << endl;
+        cout << "school student quantity : " << school_student_quantity << endl;
     }
 
     static void getSchoolCount()

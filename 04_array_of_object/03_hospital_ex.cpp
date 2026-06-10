@@ -58,14 +58,14 @@ public:
     void getHospitalDetails()
     {
 
-        cout << "hospital id             " << hospital_id << endl;
-        cout << "hospital name           " << hospital_name << endl;
-        cout << "hospital type           " << hospital_type << endl;
-        cout << "hospital rating         " << hospital_rating << endl;
-        cout << "hospital location       " << hospital_location << endl;
-        cout << "hospital establish year " << hospital_establish_year << endl;
-        cout << "hospital staff quantity " << hospital_staff_quantity << endl;
-        cout << "hospital bed quantity   " << hospital_bed_quantity << endl;
+        cout << "hospital id             : " << hospital_id << endl;
+        cout << "hospital name           : " << hospital_name << endl;
+        cout << "hospital type           : " << hospital_type << endl;
+        cout << "hospital rating         : " << hospital_rating << endl;
+        cout << "hospital location       : " << hospital_location << endl;
+        cout << "hospital establish year : " << hospital_establish_year << endl;
+        cout << "hospital staff quantity : " << hospital_staff_quantity << endl;
+        cout << "hospital bed quantity   : " << hospital_bed_quantity << endl;
     }
 
     static void getHospitalCount()
