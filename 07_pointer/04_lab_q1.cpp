@@ -1,49 +1,32 @@
 
 #include <iostream>
-#include <string>
+
 using namespace std;
 
-
+// Base Class
 class Employee
 {
 protected:
-    int employee_id;
-    string name;
-    int age;
-    float salary;
+    int emp_id;
+    string emp_name;
+    int emp_age;
+    double emp_salary;
 
 public:
-    Employee()
+    Employee(int id, string name, int age, double salary)
     {
-        employee_id = 0;
-        name = "";
-        age = 0;
-        salary = 0;
-    }
-
-    virtual void input()
-    {
-        cout << "Enter Employee ID: ";
-        cin >> employee_id;
-
-        cin.ignore();
-
-        cout << "Enter Name: ";
-        getline(cin, name);
-
-        cout << "Enter Age: ";
-        cin >> age;
-
-        cout << "Enter Salary: ";
-        cin >> salary;
+        emp_id = id;
+        emp_name = name;
+        emp_age = age;
+        emp_salary = salary;
     }
 
     virtual void display()
     {
-        cout << " Employee ID : " << employee_id<<endl;
-        cout << " Name        : " << name<<endl;
-        cout << " Age         : " << age<<endl;
-        cout << " Salary      : " << salary<<endl;
+        cout << "\nEmployee ID       : " << emp_id;
+        cout << "\nEmployee Name    : " << emp_name;
+        cout << "\nEmployee Age     : " << emp_age;
+        cout << "\nEmployee Salary  : " << emp_salary;
     }
 
     virtual ~Employee()
@@ -51,49 +34,179 @@ public:
     }
 };
 
-
+// Derived Class1 - Full Time Employee
 class FullTimeEmployee : public Employee
 {
 private:
     float bonus;
 
 public:
-    void input()
+    FullTimeEmployee(int id, string name, int age, double salary, float bonus) : Employee(id, name, age, salary)
     {
-
-        cout << "Enter Bonus: ";
-        cin >> bonus;
+        this->bonus = bonus;
     }
 
-    void display()
+    void display() override
     {
 
-        cout << "Bonus" << bonus << endl;
+        Employee::display();
+
+        cout << "\nEmployee Bonus  : " << bonus << endl;
     }
 };
 
+// Derived Class2 - Part Time Employee
 class PartTimeEmployee : public Employee
 {
 private:
     int hours_worked;
 
 public:
-    void input()
+    PartTimeEmployee(int id, string name, int age, double salary, int working_hours) : Employee(id, name, age, salary)
     {
 
-        cout << "Enter Hours Worked: ";
-        cin >> hours_worked;
+        hours_worked = working_hours;
     }
 
-    void display()
+    void display() override
     {
+        Employee::display();
 
-        cout << "Hours Worked" << hours_worked << endl;
+        cout << "\n Employee Hours Worked: " << hours_worked << endl;
     }
 };
 
 int main()
 {
+    Employee *employees[100];
+
+    int choice;
+    int count = 0;
+
+    do
+    {
+
+        cout << "\n2---Employee management system ---" << endl;
+
+        cout << "n1.Add Employee " << endl;
+        cout << "n2. Display all Employees " << endl;
+        cout << "n3.Delete Employee " << endl;
+        cout << "n4.Exit " << endl;
+
+        cout << "Enter your choice from above menu :- ";
+        cin >> choice;
+
+        if (choice == 1)
+        {
+
+            int type;
+
+            cout << "1. Full-time Employee " << endl;
+            cout << "2. part-time Employee " << endl;
+
+            cin >> type;
+
+            int id, age, salary;
+            string name;
+
+            cout << "Enter Employee Id :- ";
+            cin >> id;
+            cin.ignore();
+
+            cout << "Enter Employee name :- ";
+            getline(cin, name);
+
+            cout << "Enter Employee age :- ";
+            cin >> age;
+            cin.ignore();
+
+            cout << "Enter Employee salary :-";
+            cin >> salary;
+            cin.ignore();
+
+            if (type == 1)
+            {
+
+                int bonus;
+
+                cout << "\n Enter Employee bonus :- ";
+                cin >> bonus;
+
+                employees[count] = new FullTimeEmployee(id, name, age, salary, bonus);
+                count++;
+            }
+            else if (type == 2)
+            {
+
+                int hours;
+
+                cout << " \n enter Working hours of Employee :-";
+                cin >> hours;
+
+                employees[count] = new PartTimeEmployee(id, name, age, salary, hours);
+                count++;
+            }
+        }
+        else if (choice == 2)
+        {
+
+            if (count == 0)
+            {
+
+                cout << "  No Employee data found " << endl;
+            }
+            else
+            {
+
+                for (int i = 0; i < count; i++)
+                {
+
+                    employees[i]->display();
+                }
+            }
+        }
+
+        else if (choice == 3)
+        {
+
+            int index;
+
+            cout << " enter index to delete " << "from 0 to " << count - 1 << endl;
+            cin >> index;
+
+            if (index >= 0 && index < count)
+            {
+
+                for (int i = index; i < count - 1; i++)
+                {
+
+                    employees[i] = employees[i + 1];
+                }
+
+                count--;
+
+                cout << " employee Data deleted " << endl;
+            }
+            else
+            {
+
+                cout << " invalid index " << endl;
+            }
+        }
+        else if (choice == 4)
+        {
+
+            cout << " Exiting...." << endl;
+        }
+    } while (choice != 4);
+
+    for (int i = 0; i < count; i++)
+    {
+
+        delete employees[i];
+
+        cout << "memory free " << endl;
+    }
 
     return 0;
 }
