@@ -1,6 +1,6 @@
 
-#include <iostream>
 
+#include <iostream>
 using namespace std;
 
 // Base Class
@@ -86,12 +86,12 @@ int main()
     do
     {
 
-        cout << "\n2---Employee management system ---" << endl;
+        cout << "\n---Employee management system ---" << endl;
 
-        cout << "n1.Add Employee " << endl;
-        cout << "n2. Display all Employees " << endl;
-        cout << "n3.Delete Employee " << endl;
-        cout << "n4.Exit " << endl;
+        cout << "1.Add Employee " << endl;
+        cout << "2. Display all Employees " << endl;
+        cout << "3.Delete Employee " << endl;
+        cout << "4.Exit " << endl;
 
         cout << "Enter your choice from above menu :- ";
         cin >> choice;
